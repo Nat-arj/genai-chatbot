@@ -2,33 +2,35 @@
 
 # Overview
 
-A chatbot application built using FastAPI, LangChain, and Ollama. The system uses Retrieval-Augmented Generation (RAG) to retrieve relevant information before generating responses.
+A Retrieval-Augmented Generation (RAG) chatbot built using FastAPI, LangChain, ChromaDB, Ollama, and Mistral. The system retrieves relevant information from documents using semantic search and generates context-aware responses using a locally hosted Large Language Model (LLM).
 
 # Problem Statement
 
-General-purpose LLMs may not have access to domain-specific or private information. Users need a chatbot that can answer questions using their own documents and knowledge sources.
+General-purpose Large Language Models (LLMs) may not have access to domain-specific, private, or custom documents. This can lead to inaccurate responses or hallucinations when answering document-related questions.
 
 # Proposed Solution
 
-The chatbot uses RAG to retrieve relevant context from stored documents and provides context-aware responses through an LLM.
+This project implements a Retrieval-Augmented Generation (RAG) pipeline that retrieves relevant document chunks using semantic search and provides them as context to an LLM. This improves answer accuracy and enables document-aware question answering.
 
 # Architecture
 
-User
-↓
-FastAPI
-↓
-LangChain
-↓
-Retriever
-↓
-Vector Store
-↓
-nomic-embed-text Embeddings
-↓
-Ollama (LLM)
-↓
-Response
+PDF Documents 
+    ↓ 
+Document Loader 
+    ↓ 
+Text Chunking 
+    ↓ 
+nomic-embed-text Embeddings 
+    ↓ 
+ChromaDB Vector Store 
+    ↓ 
+Retriever 
+    ↓ 
+Prompt Template 
+    ↓ 
+Mistral (via Ollama) 
+    ↓ 
+Generated Response
 
 # Technologies Used
 
@@ -42,11 +44,14 @@ Response
 
 # Features
 
-- Conversational chatbot
-- Document retrieval
+- PDF document ingestion
+- Text chunking and embedding generation
+- Semantic similarity search
+- Retrieval-Augmented Generation (RAG)
 - Context-aware responses
 - Prompt engineering
-- REST API endpoints
+- FastAPI REST API backend
+- Local LLM execution using Ollama
 
 # Future Improvements
 
