@@ -1,25 +1,56 @@
-# GenAI Chatbot
+# GenAI Chatbot with RAG
 
-Overview
+# Overview
 
-An AI-powered chatbot built using FastAPI, Ollama and nomic-embed-text. The project is designed to explore Generative AI concepts such as prompt engineering, Retrieval-Augmented Generation (RAG), and conversational AI.
+A chatbot application built using FastAPI, LangChain, and Ollama. The system uses Retrieval-Augmented Generation (RAG) to retrieve relevant information before generating responses.
 
-Technologies
+# Problem Statement
+
+General-purpose LLMs may not have access to domain-specific or private information. Users need a chatbot that can answer questions using their own documents and knowledge sources.
+
+# Proposed Solution
+
+The chatbot uses RAG to retrieve relevant context from stored documents and provides context-aware responses through an LLM.
+
+# Architecture
+
+User
+↓
+FastAPI
+↓
+LangChain
+↓
+Retriever
+↓
+Vector Store
+↓
+nomic-embed-text Embeddings
+↓
+Ollama (LLM)
+↓
+Response
+
+# Technologies Used
 
 - Python
 - FastAPI
-- Ollama
 - LangChain
+- Ollama
 - nomic-embed-text
+- ChromaDB 
 - Mistral
 
-Features
+# Features
 
 - Conversational chatbot
-- Prompt engineering
+- Document retrieval
 - Context-aware responses
-- RAG integration (planned)
+- Prompt engineering
+- REST API endpoints
 
-## Status
+# Future Improvements
 
-Project under development.
+- Authentication
+- Chat history storage for conversational RAG
+- Multi-document support
+- Web UI
